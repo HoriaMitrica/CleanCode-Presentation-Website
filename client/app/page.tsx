@@ -1,11 +1,12 @@
 import React from 'react';
-import MyLogo from '@/public/logo_color.svg';
-import styles from '@/app/page.module.css';
+import Logo from './components/Logo';
+import RightSidePieces from './components/RightSidePieces';
 
 export default function Home() {
   return (
-    <>  
-      <MyLogo className={styles.svg}/>
+    <>
+      <RightSidePieces />
+      <Logo />
     </>
   );
 };
