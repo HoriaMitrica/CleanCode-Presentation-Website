@@ -2,23 +2,7 @@
   position:absolute;
   top: 50%;
   left:50%;
+  width: 500px;
+  height: 500px;
   transform:translate(-50%,-50%);
-}
-
-.svg path{
-  fill: none;
-  stroke:blue;
-  stroke-width:1px;
-  stroke-dasharray: 1200px;
-  stroke-dashoffset: 1200px;
-  stroke-linecap:square;
-  stroke-linejoin:round;
-  animation: dash 4s linear forwards;
-  
-}
-
-@keyframes dash {
-  100% {
-    stroke-dashoffset: 0;
-  }
 }
