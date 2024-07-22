@@ -1,8 +1,9 @@
 .svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 500px;
-    height: 500px;
-    transform: translate(-50%, -50%);
+
+    width: 300px;
+    height: 300px;
+}
+
+#clean path:nth-child(1){
+    fill:aqua;
 }

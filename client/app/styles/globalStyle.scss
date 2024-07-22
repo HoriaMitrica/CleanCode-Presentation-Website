@@ -1,28 +1,35 @@
+@import "globalVariables";
+
 .dark_blue_fill {
-    fill: #273155;
+    fill: $DarkBlue;
     fill-rule: nonzero;
 }
 .teal_fill {
-    fill: #149497;
+    fill: $Teal;
     fill-rule: nonzero;
 }
 .blue_fill {
-    fill: #1d538f;
+    fill: $Blue;
     fill-rule: nonzero;
 }
 .aqua_fill {
-    fill: #9bdcde;
+    fill: $Aqua;
     fill-rule: nonzero;
 }
 .red_fill{
-    fill: #fa5456;
+    fill: $Red;
     fill-rule: nonzero;
 }
 .orange_fill {
-    fill: #fa8825;
+    fill: $Orange;
     fill-rule: nonzero;
 }
 .yellow_fill {
-    fill: #fed942;
+    fill: $Yellow;
     fill-rule: nonzero;
+}
+
+.font-test{
+    color:red;
+    font-family: $RubikLight;
 }

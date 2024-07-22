@@ -1,0 +1,49 @@
+@use "fonts";
+
+$RubikRegular: "RubikRegular", sans-serif;
+$RubikBold: "RubikBold", sans-serif;
+$RubikLight: "RubikLight", sans-serif;
+
+/*------------------------------------*\
+  # Color
+\*------------------------------------*/
+
+$DarkBlue:#273155;
+$Teal:#149497;
+$Blue:#1d538f;
+$Aqua:#9bdcde;
+$Red:#fa5456;
+$Orange:#fa8825;
+$Yellow:#fed942;
+
+/*------------------------------------*\
+  # Media Queries
+\*------------------------------------*/
+$breakpoint-xsmall: 400px;
+$breakpoint-small: 600px;
+$breakpoint-medium: 800px;
+$breakpoint-large: 1000px;
+$breakpoint-xlarge: 1300px;
+
+/*------------------------------------*\
+  # Transitions
+\*------------------------------------*/
+
+$ease-in-out: 0.3s ease-in-out;
+
+/*------------------------------------*\
+  # Spacing
+\*------------------------------------*/
+
+$spacing-small: 8px;
+$spacing-medium: 16px;
+$spacing-large: 24px;
+
+$bottomSpacing: 5rem;
+
+$font-size-x-small: 1rem;
+$font-size-small: 1.5rem;
+$font-size-medium: 2rem;
+$font-size-large: 3em;
+$font-size-x-large: 4rem;
+$font-size-xx-large: 5rem;
