@@ -21,6 +21,7 @@
       "@/*": ["./*"],
       "@/public/*": ["./public/*"],
       "@/style/*": ["./app/style/*"],
+      "@/constants/*": ["./app/constants/*"],
       "@/models/*": ["./app/models/*"],
       "@/components/*": ["./app/components/*"],
       "@/assets/*": ["./public/assets/*"],

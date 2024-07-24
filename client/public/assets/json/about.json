@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "name":"About",
+        "detail":""
+    },
+    {
+        "id":2,
+        "name":"Blog",
+        "detail":""
+    },
+    {
+        "id":3,
+        "name":"Contact",
+        "detail":""
+    }   
+]

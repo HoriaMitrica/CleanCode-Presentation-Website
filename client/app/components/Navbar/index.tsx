@@ -7,30 +7,50 @@ import style from "./style.module.scss"
 import { Dropdown } from '@/components/Dropdown';
 import { Logo } from '@/components/Logo';
 
-export default function Navbar() {
-    const services: String[] = ["service1", "service2"];
-    const industry: String[] = ["industry1"];
-    const aboutUs: String[] = ["about1", "about2", "about3"];
+import { DropdownData } from '@/models/dropdown';
 
-    const [activeDropdown, setActiveDropdown] = useState<String[]>([])
+import { ABOUT_JSON_PATH, INDUSTRY_JSON_PATH, SERVICES_JSON_PATH, TECHNOLOGIES_JSON_PATH } from '@/constants/constants';
+
+
+export default function Navbar() {
+
+    const [activeDropdown, setActiveDropdown] = useState<DropdownData[]>([]);
+
+    const fetchData = async (path: string) => {
+        try {
+            const response = await fetch(path);
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+    
+            const data: DropdownData[] = await response.json();
+            setActiveDropdown(data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+
     return (
         <>
-            <nav>
+            <nav className={`${style.nav}`}>
                 <ul className={style.navList}>
                     <li className={style.navItem}><Logo /></li>
-                    <li className={style.navItem}><a onMouseEnter={() => setActiveDropdown(services)}
+                    <li className={style.navItem}><a onMouseEnter={() => fetchData(SERVICES_JSON_PATH)}
                         onMouseLeave={() => setActiveDropdown([])}>Services</a></li>
-                    <li className={style.navItem}><a onMouseEnter={() => setActiveDropdown(industry)}
+                    <li className={style.navItem}><a onMouseEnter={() => fetchData(INDUSTRY_JSON_PATH)}
                         onMouseLeave={() => setActiveDropdown([])}>Industries</a></li>
-                    <li className={style.navItem}><a onMouseEnter={() => setActiveDropdown(aboutUs)}
+                        <li className={style.navItem}><a onMouseEnter={() => fetchData(TECHNOLOGIES_JSON_PATH)}
+                        onMouseLeave={() => setActiveDropdown([])}>Technologies</a></li>
+                    <li className={style.navItem}><a onMouseEnter={() => fetchData(ABOUT_JSON_PATH)}
                         onMouseLeave={() => setActiveDropdown([])}>About Us</a></li>
                     <li className={style.navItem}>
                         <button className={style.button}>Contact us</button>
                     </li>
                 </ul>
             </nav>
-            {console.log(activeDropdown)}
-            <Dropdown category={activeDropdown} />
+            {activeDropdown.length>0 && <Dropdown category={activeDropdown} />}
         </>
     );
 };
