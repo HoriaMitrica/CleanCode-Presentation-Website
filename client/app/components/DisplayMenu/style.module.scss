@@ -1,0 +1,45 @@
+@import "@/style/globalVariables.scss";
+
+.section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.topSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.bottomSection {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    .itemsListChild {
+        cursor: pointer;
+        color:$DarkBlue;
+        &:hover{
+            color:$Blue;
+        }
+    }
+    .leftSide {
+        background-color: $Aqua;
+        padding: 10px;
+    }
+
+    .rightSide {
+        background-color: $Teal;
+        padding: 10px;
+        flex-grow: 1;
+    }
+    .cardContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .menuItemName {
+        color: $Red;
+    }
+}

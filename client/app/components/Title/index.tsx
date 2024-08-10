@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { TITLE_CHANGING_WORDS } from '@constants/constants';
 import style from "./style.module.scss";
 
-export default function Title() {
+const Title=()=> {
 
     const [index, setIndex] = useState<number>(0);
 
@@ -29,7 +29,9 @@ export default function Title() {
                 ))}
             </span>
             <br />
-            with 1000+ developers on board
+            with 500+ developers on board
         </h1>
     );
 };
+
+export default Title;
