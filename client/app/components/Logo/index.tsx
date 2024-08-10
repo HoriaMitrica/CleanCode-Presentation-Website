@@ -6,7 +6,7 @@ import * as React from "react"
 import { SVGProps } from "react"
 import style from "./style.module.scss"
 
-export const Logo = (props: SVGProps<SVGSVGElement>) => {
+const Logo = (props: SVGProps<SVGSVGElement>) => {
 
   const LOGO_ANIMATION_DURATION: number = 2;
   useGSAP(() => {
@@ -86,3 +86,4 @@ export const Logo = (props: SVGProps<SVGSVGElement>) => {
     </>
   )
 }
+export default Logo;

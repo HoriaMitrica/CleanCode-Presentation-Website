@@ -2,10 +2,10 @@
 
 import React, { useState } from 'react';
 import style from "./style.module.scss"
-import { DropdownProps } from '@/models/dropdown';
+import { DropdownProps } from '@models/dropdown';
 import {CSSTransition} from "react-transition-group";
 
-export const Dropdown:React.FC<DropdownProps> = ({category}) => {
+const Dropdown:React.FC<DropdownProps> = ({category}) => {
 const [activeMenu, setActiveMenu]=useState<string>("main");
   return (
     <div className={`${style.dropdown}`}>
@@ -19,3 +19,4 @@ const [activeMenu, setActiveMenu]=useState<string>("main");
     </div>
   );
 };
+export default Dropdown;

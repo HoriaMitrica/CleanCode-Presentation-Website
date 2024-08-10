@@ -1,4 +1,4 @@
-@imp    ort "@/style/globalVariables.scss";
+@import "@/style/globalVariables.scss";
 
 .dropdown {
     left: 0;
@@ -6,6 +6,7 @@
     background-color: rgba(0,0,0,0);
     width:100%;
     pointer-events: none; 
+    padding:10px;
     animation: descend 0.5s linear forwards;
 }
 
