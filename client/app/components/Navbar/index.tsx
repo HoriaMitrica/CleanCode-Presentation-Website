@@ -1,23 +1,78 @@
-import React from 'react';
-import Logo from '@/components/Logo';
+"use client"
+
+import React, { useEffect, useRef, useState } from 'react';
+
 import style from "./style.module.scss"
-import NavbarExtension from '@/components/NavbarExtension';
+
+import { Dropdown } from '@/components/Dropdown';
+import { Logo } from '@/components/Logo';
+
+import { DropdownData } from '@/models/dropdown';
+
+import { ABOUT_JSON_PATH, INDUSTRY_JSON_PATH, SERVICES_JSON_PATH, TECHNOLOGIES_JSON_PATH } from '@/constants/constants';
+
 
 export default function Navbar() {
+
+    const [activeDropdown, setActiveDropdown] = useState<DropdownData[]>([]);
+
+    const navRef = useRef<HTMLDivElement>(null);
+    const [navHeight, setNavHeight] = useState<string>('100px'); 
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
+    const fetchData = async (path: string) => {
+        try {
+            const response = await fetch(path);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const data: DropdownData[] = await response.json();
+            setActiveDropdown(data);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
+    const handleMouseLeave = () => {
+        setNavHeight('100px');
+        setActiveDropdown([]);
+    };
+    
+    useEffect(() => {
+        if (dropdownRef.current && navRef.current) {
+          if (activeDropdown) {
+            const dropdownHeight = dropdownRef.current.offsetHeight;
+            setNavHeight(navRef.current.offsetHeight +dropdownHeight+ 'px');
+          } else {
+            setNavHeight('100px');
+          }
+        }
+      }, [activeDropdown]);
+      console.log(navHeight);
+      
     return (
         <>
-            <nav>
+            <nav ref={navRef} className={`${style.nav}`}  style={{ height: navHeight}} >
                 <ul className={style.navList}>
                     <li className={style.navItem}><Logo /></li>
-                    <li className={style.navItem}><a>Services</a></li>
-                    <li className={style.navItem}><a>Industries</a></li>
-                    <li className={style.navItem}><a>About Us</a></li>
-                    <li className={style.navItem}>
+                    <li className={style.navItem}><a onMouseLeave={handleMouseLeave} onMouseEnter={() => fetchData(SERVICES_JSON_PATH)}
+                    >Services</a></li>
+                    <li className={style.navItem}><a onMouseLeave={handleMouseLeave} onMouseEnter={() => fetchData(INDUSTRY_JSON_PATH)}
+                    >Industries</a></li>
+                    <li className={style.navItem}><a onMouseLeave={handleMouseLeave} onMouseEnter={() => fetchData(ABOUT_JSON_PATH)}
+                    >About Us</a></li>
+                    <li className={`${style.navItem}`}>
                         <button className={style.button}>Contact us</button>
                     </li>
-                </ul>   
+                </ul>
+
+                {activeDropdown.length > 0 &&
+                    <div ref={dropdownRef} onMouseLeave={handleMouseLeave}>
+                        <Dropdown category={activeDropdown} />
+                    </div>  
+                }
             </nav>
-            <NavbarExtension />
         </>
     );
 };

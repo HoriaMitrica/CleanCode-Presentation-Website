@@ -1,14 +1,12 @@
 "use client"
 
-import gsap from "gsap"
-import { useGSAP } from '@gsap/react'
 import * as React from "react"
-import { SVGProps, useEffect } from "react"
+import { SVGProps } from "react"
 import style from "./style.module.scss"
 
 
 
-const RightSidePieces = (props: SVGProps<SVGSVGElement>) => {
+export const RightSidePieces = (props: SVGProps<SVGSVGElement>) => {
     return (
         <>
             <svg className={style.svg}
@@ -31,4 +29,3 @@ const RightSidePieces = (props: SVGProps<SVGSVGElement>) => {
         </>
     )
 }
-export default RightSidePieces

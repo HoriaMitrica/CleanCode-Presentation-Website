@@ -1,0 +1,73 @@
+[
+    {
+        "id":1,
+        "name":"Custom Software Development",
+        "detail":""
+    },
+    {
+        "id":2,
+        "name":"Mobile App Development",
+        "detail":""
+    },
+    {
+        "id":3,
+        "name":"MVP Development",
+        "detail":""
+    },
+    {
+        "id":4,
+        "name":"Application Modernization",
+        "detail":""
+    },
+    {
+        "id":5,
+        "name":"Offshore Technical Services",
+        "detail":""
+    },
+    {
+        "id":6,
+        "name":"Dedicated Development Team",
+        "detail":""
+    },
+    {
+        "id":7,
+        "name":"Experience Design",
+        "detail":""
+    },    
+    {
+        "id":8,
+        "name":"Product Development",
+        "detail":""
+    },
+    {
+        "id":9,
+        "name":"IT Staff Augmentaion",
+        "detail":""
+    },
+    {
+        "id":10,
+        "name":"Software Consulting Services",
+        "detail":""
+    },
+    {
+        "id":11,
+        "name":"Digital Transformation",
+        "detail":""
+    },
+    {
+        "id":12,
+        "name":"Search Engine Optimization",
+        "detail":""
+    },    
+    {
+        "id":13,
+        "name":"Hosting / Network",
+        "detail":""
+    },
+    {
+        "id":14,
+        "name":"Project Management",
+        "detail":""
+    }    
+    
+]

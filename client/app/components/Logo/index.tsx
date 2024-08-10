@@ -6,7 +6,7 @@ import * as React from "react"
 import { SVGProps } from "react"
 import style from "./style.module.scss"
 
-const Logo = (props: SVGProps<SVGSVGElement>) => {
+export const Logo = (props: SVGProps<SVGSVGElement>) => {
 
   const LOGO_ANIMATION_DURATION: number = 2;
   useGSAP(() => {
@@ -55,7 +55,7 @@ const Logo = (props: SVGProps<SVGSVGElement>) => {
               <path id="yellow" className="yellow_fill" d="M73.07 37.93l-69.59 0c-1.92,0 -3.48,1.56 -3.48,3.49l0 5.85c0,1.92 1.56,3.48 3.48,3.48l69.59 0c2.78,0 5.04,-2.25 5.04,-5.04l0 -2.74c0,-2.78 -2.25,-5.04 -5.04,-5.04z" />
             </g>
             <g>
-              <g id="clean">
+              <g id={style.clean}>
                 <path className="dark_blue_fill" d="M155.62 2.59l0 5.39c-3.76,-1.84 -7.24,-2.75 -10.4,-2.75 -4.05,0 -7.48,1.31 -10.26,3.92 -2.78,2.62 -4.16,5.83 -4.16,9.64 0,3.88 1.42,7.12 4.27,9.73 2.84,2.59 6.4,3.9 10.68,3.9 3.11,0 6.4,-0.97 9.88,-2.92l0 5.45c-3.16,1.68 -6.59,2.53 -10.29,2.53 -5.42,0 -10.04,-1.83 -13.88,-5.48 -3.85,-3.66 -5.77,-8.08 -5.77,-13.24 0,-5.07 1.89,-9.42 5.66,-13.03 3.78,-3.61 8.33,-5.42 13.66,-5.42 3.42,0 6.95,0.77 10.61,2.3z" />
                 <polygon className="dark_blue_fill" points="162.13,1.41 166.9,1.41 166.9,31.57 178.25,31.57 178.25,36.34 162.13,36.34 " />
                 <polygon className="dark_blue_fill" points="184.76,1.41 204.13,1.41 204.13,6.18 189.53,6.18 189.53,14.83 204.13,14.83 204.13,19.61 189.53,19.61 189.53,31.57 204.13,31.57 204.13,36.34 184.76,36.34 " />
@@ -86,4 +86,3 @@ const Logo = (props: SVGProps<SVGSVGElement>) => {
     </>
   )
 }
-export default Logo
