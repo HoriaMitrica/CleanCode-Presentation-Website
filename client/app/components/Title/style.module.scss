@@ -1,0 +1,49 @@
+@import "@/style/globalVariables.scss";
+
+.title {
+    
+    font-family: $RubikBold;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.changingText {
+    color: $Red;
+    display: inline-block;
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+}
+
+.isHidden {
+    display: none;
+    animation: pushOut 0.5s forwards;
+}
+
+.isVisible {
+    animation: pushIn 0.5s forwards;
+}
+
+@keyframes pushIn {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pushOut {
+    0% {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}

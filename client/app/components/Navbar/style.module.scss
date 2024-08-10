@@ -1,7 +1,7 @@
 @import "@/style/globalVariables.scss";
 
 .nav {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -12,7 +12,6 @@
   border-bottom: 3px solid transparent;
   overflow:hidden;
   transition: height 0.25s linear;
-
 
   &:after {
     content: '';
