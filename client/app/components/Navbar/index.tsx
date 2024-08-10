@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import style from "./style.module.scss"
 
@@ -15,7 +15,10 @@ import { ABOUT_JSON_PATH, INDUSTRY_JSON_PATH, SERVICES_JSON_PATH, TECHNOLOGIES_J
 export default function Navbar() {
 
     const [activeDropdown, setActiveDropdown] = useState<DropdownData[]>([]);
+
     const navRef = useRef<HTMLDivElement>(null);
+    const [navHeight, setNavHeight] = useState<string>('100px'); 
+    const dropdownRef = useRef<HTMLDivElement | null>(null);
     const fetchData = async (path: string) => {
         try {
             const response = await fetch(path);
@@ -32,21 +35,32 @@ export default function Navbar() {
     };
 
     const handleMouseLeave = () => {
-        setTimeout(() => {
-            setActiveDropdown([]);
-        }, 500);
+        setNavHeight('100px');
+        setActiveDropdown([]);
     };
-    console.log(navRef.current?.style.height);
+    
+    useEffect(() => {
+        if (dropdownRef.current && navRef.current) {
+          if (activeDropdown) {
+            const dropdownHeight = dropdownRef.current.offsetHeight;
+            setNavHeight(navRef.current.offsetHeight +dropdownHeight+ 'px');
+          } else {
+            setNavHeight('100px');
+          }
+        }
+      }, [activeDropdown]);
+      console.log(navHeight);
+      
     return (
         <>
-            <nav ref={navRef} className={`${style.nav} ${activeDropdown.length>0 ? style.expand : style.shrink}`}>
+            <nav ref={navRef} className={`${style.nav}`}  style={{ height: navHeight}} >
                 <ul className={style.navList}>
                     <li className={style.navItem}><Logo /></li>
-                    <li className={style.navItem}><a onMouseEnter={() => fetchData(SERVICES_JSON_PATH)}
+                    <li className={style.navItem}><a onMouseLeave={handleMouseLeave} onMouseEnter={() => fetchData(SERVICES_JSON_PATH)}
                     >Services</a></li>
-                    <li className={style.navItem}><a onMouseEnter={() => fetchData(INDUSTRY_JSON_PATH)}
+                    <li className={style.navItem}><a onMouseLeave={handleMouseLeave} onMouseEnter={() => fetchData(INDUSTRY_JSON_PATH)}
                     >Industries</a></li>
-                    <li className={style.navItem}><a onMouseEnter={() => fetchData(ABOUT_JSON_PATH)}
+                    <li className={style.navItem}><a onMouseLeave={handleMouseLeave} onMouseEnter={() => fetchData(ABOUT_JSON_PATH)}
                     >About Us</a></li>
                     <li className={`${style.navItem}`}>
                         <button className={style.button}>Contact us</button>
@@ -54,7 +68,7 @@ export default function Navbar() {
                 </ul>
 
                 {activeDropdown.length > 0 &&
-                    <div onMouseLeave={handleMouseLeave}>
+                    <div ref={dropdownRef} onMouseLeave={handleMouseLeave}>
                         <Dropdown category={activeDropdown} />
                     </div>  
                 }

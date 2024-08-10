@@ -11,14 +11,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-bottom: 3px solid transparent;
   overflow:hidden;
-  transition: height 0.5s linear;
-
-  &.expand{
-    height: 400px;
-  }
-  &.shrink{
-    height:100px;
-  }
+  transition: height 0.25s linear;
 
 
   &:after {
@@ -52,7 +45,7 @@
   
   &:nth-child(1){
     flex-grow: 1;
-  }
+  } 
   &:last-child{
     flex-grow: 1;
   }
