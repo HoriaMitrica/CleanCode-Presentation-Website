@@ -1,14 +1,17 @@
 import React from 'react';
 import Navbar from '@components/Navbar';
-import style from './page.module.scss';
-import Title from '@components/Title';
+import Services from '@components/Services';
+import Landing from '@components/Landing';
+import Technologies from '@components/Technologies';
 
 export default function Home() {
 
   return (
     <>
       <Navbar />
-      <Title/>
+      <Landing/>
+      <Services/>
+      <Technologies/>
     </>
   );
 };
