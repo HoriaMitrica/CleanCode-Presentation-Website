@@ -4,6 +4,7 @@ import Landing from '@components/Landing';
 import DisplayMenu from '@components/DisplayMenu';
 import { MenuProps } from '@models/menu';
 import { MenuItemProps } from '@models/menuItem';
+import Background from '@components/Background';
 
 
 
@@ -116,6 +117,7 @@ export default function Home() {
     <>
       <Navbar />
       <Landing />
+      {/* <Background/> */}
       <DisplayMenu menuItems={services} />
     </>
   );
